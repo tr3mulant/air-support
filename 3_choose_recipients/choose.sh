@@ -13,4 +13,4 @@ if [ ! -f ${TOKEN_HOLDERS} ]; then
 fi
 
 echo "Choosing recipients for airdrop $1 in ${DIR}"
-gshuf ${TOKEN_HOLDERS} | head -n ${NUM} > ${DIR}/${TYPE}_addresses.log
+shuf ${TOKEN_HOLDERS} | head -n ${NUM} > ${DIR}/${TYPE}_addresses.log
