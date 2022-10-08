@@ -47,7 +47,7 @@ async function mineCurrentHolder(
 
 async function main() {
   const mintList = JSON.parse(
-    readFileSync(tokenAddressLog, 'utf8')
+    readFileSync(tokenAddressLog, "utf8")
   ) as Array<string>;
 
   for await (const tokenAccount of mintList) {
@@ -65,6 +65,7 @@ async function main() {
     const magicEdenMarket = "GUfCR9mK6azb9vcpsxgXyj7XRPAKJd4KMHTTVvtncGgp";
     const solanartMarket = "3D49QorJyNaL4rcpiynbuS3pRH4Y7EXEM6v6ZGaqfFGK";
     const alphaArtMarket = "4pUQS4Jo2dsfWzt3VgHXy3H6RYnEDd11oWPiaM2rdAPw";
+    const exchangeArtMarket = "BjaNzGdwRcFYeQGfuLYsc1BbaNRG1yxyWs1hZuGRT8J2";
 
     switch (currentHolder) {
       case digitalEyesMarket:
@@ -74,6 +75,8 @@ async function main() {
       case magicEdenMarket:
         break;
       case alphaArtMarket:
+        break;
+      case exchangeArtMarket:
         break;
       default:
         console.log(currentHolder);
