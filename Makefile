@@ -3,6 +3,7 @@ KEY ?= "/Users/skeletoncrew/solana/skull-prod.json"
 RPC_HOST ?= "https://api.devnet.solana.com/"
 DROP ?= 1
 TYPE ?= "token"
+RATE_LIMIT ?= 10
 
 clean:
 	@rm -f token_holders.log
@@ -24,4 +25,4 @@ choose:
 	./3_choose_recipients/choose.sh $(DROP) $(NUM) $(TYPE) 
 
 distribute:
-	./4_distribute_nfts/distribute.sh $(DROP) $(TYPE) $(RPC_HOST)
+	./4_distribute_nfts/distribute.sh $(DROP) $(TYPE) $(RPC_HOST) $(RATE_LIMIT)

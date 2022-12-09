@@ -4,6 +4,9 @@ AIRDROP=$1
 TYPE=$2
 RPC_HOST=${3:-"https://api.mainnet-beta.solana.com/"}
 STARTINDEX=${4:-0}
+RATE_LIMIT=${5:-10}
+echo "${RATE_LIMIT}"
+exit 0
 
 OUTFILE="airdrops/${1}/${TYPE}_sent.log"
 TOKEN_LIST_FILE="airdrops/${AIRDROP}/${TYPE}_mints.log"
@@ -62,6 +65,7 @@ do
   echo ""
 
   spl-token transfer ${TOKEN_MINT_ADDRESS} 1 ${RECIPIENT} --from ${TOKEN_ACCOUNT_ADDRESS} --url ${RPC_HOST} --fund-recipient --allow-unfunded-recipient | tee ${OUTFILE} 
+  sleep ${RATE_LIMIT}s
 done
 
 echo ""
